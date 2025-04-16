@@ -1,0 +1,91 @@
+---
+title: "Analiza sieci delfinów - zadanie igraph"
+author: "Dawid Stasiak"
+date: "`r Sys.Date()`"
+output:
+  pdf_document:
+  html_document:
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 12,
+  fig.height = 8,
+  fig.align = "center"
+)
+
+library(igraph)
+```
+
+## Wczytanie danych
+
+```{r load_data}
+dolphins_graph <- read_graph("dolphins.gml", format = "gml")
+```
+
+## Wizualizacja sieci z wierzchołkami o wielkości proporcjonalnej do stopnia
+
+```{r graph_visualization}
+vertex_degrees <- degree(dolphins_graph)
+layout_kk <- layout_with_kk(dolphins_graph)
+
+plot(dolphins_graph, 
+     vertex.size = vertex_degrees * 2,
+     vertex.label = V(dolphins_graph)$label,
+     vertex.label.cex = 0.7,
+     vertex.color = "lightblue",
+     vertex.frame.color = "white",
+     layout = layout_kk)
+```
+
+## Rozkład stopni wierzchołków
+
+```{r degree_distribution}
+deg_dist <- degree_distribution(dolphins_graph)
+
+barplot(names = 0:(length(deg_dist)-1), 
+        height = deg_dist,
+        xlab = "Degree", 
+        ylab = "Frequency",
+        col = "lightblue")
+```
+
+## Wizualizacja najdłuższej ścieżki w grafie (średnicy grafu)
+
+```{r diameter_visualization}
+diam <- get_diameter(dolphins_graph, directed = FALSE)
+
+v_diam_colors <- rep("lightblue", vcount(dolphins_graph))
+v_diam_colors[diam] <- "gold"
+
+e_diam_colors <- rep("gray", ecount(dolphins_graph))
+e_diam_colors[E(dolphins_graph, path = diam)] <- "orange"
+
+plot(dolphins_graph, 
+     vertex.size = vertex_degrees * 2,
+     vertex.label = V(dolphins_graph)$label,
+     vertex.label.cex = 0.7, 
+     vertex.color = v_diam_colors, 
+     vertex.frame.color = "white",
+     edge.color = e_diam_colors,
+     layout = layout_kk)
+```
+
+## Wizualizacja grup/społeczności występujących w grafie
+
+```{r community_detection}
+clusters <- cluster_fast_greedy(as.undirected(dolphins_graph))
+V(dolphins_graph)$community <- clusters$membership
+v_cluster_colors <- adjustcolor(c("steelblue", "tomato", "gold", "yellowgreen"), alpha = 0.7)
+
+plot(dolphins_graph, 
+     vertex.size = vertex_degrees * 2,
+     vertex.label = V(dolphins_graph)$label,
+     vertex.label.cex = 0.7, 
+     vertex.color = v_cluster_colors[V(dolphins_graph)$community],
+     vertex.frame.color = "white",
+     layout = layout_kk)
+```
