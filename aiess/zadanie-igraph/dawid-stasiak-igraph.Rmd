@@ -21,6 +21,9 @@ library(igraph)
 ```
 
 ## Wczytanie danych
+Zbiór danych pochodzi ze strony https://networks.skewed.de/net/dolphins
+
+Jest to nieskierowana sieć społeczna częstych interakcji zaobserwowanych wśród 62 delfinów (Tursiops) w społeczności żyjącej w pobliżu Doubtful Sound w Nowej Zelandii, w latach 1994-2001.
 
 ```{r load_data}
 dolphins_graph <- read_graph("dolphins.gml", format = "gml")
