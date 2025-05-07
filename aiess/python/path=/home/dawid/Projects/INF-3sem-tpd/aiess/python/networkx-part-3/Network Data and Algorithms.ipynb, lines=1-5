@@ -1,0 +1,6 @@
+def simulate_better_targeted_attacks(G, num_attacks):
+    G_copy = G.copy()
+    betweenness = nx.betweenness_centrality(G_copy)
+    high_degree_nodes = sorted(betweenness.items(), key=lambda x: x[1], reverse=True)[:num_attacks]
+    G_copy.remove_nodes_from([node for node, _ in high_degree_nodes])
+    return G_copy, [node for node, _ in high_degree_nodes] 
