@@ -1,0 +1,417 @@
+Delivered-To: redacted@gmail.com
+Received: by 2002:a17:907:c08b:b0:a36:884b:ed59 with SMTP id st11csp165259ejc;
+        Wed, 31 Jan 2024 04:40:21 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IETHgAoAKHMcd1Qj7HzyGRH8e2YXcd1gmNoxdaZ7V1Vepc9yI7F3+gF5mvcGIWYzdYukaya
+X-Received: by 2002:a2e:2202:0:b0:2d0:4c0a:a41a with SMTP id i2-20020a2e2202000000b002d04c0aa41amr1086105lji.13.1706704821395;
+        Wed, 31 Jan 2024 04:40:21 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1706704821; cv=none;
+        d=google.com; s=arc-20160816;
+        b=fV96CkuPm8p9/zRePZwIKgCfx/GxchlxQWqBg0yrHHJ8pkfcIYnVvtLHmZ+YmcZkUZ
+         2Q2Ue5+nK8R7EUwCF5kLkoXyPj1CjtDHEICqmk3yUfj3Cibcr8tvHRsiSDVBYK7NHVXP
+         wAoAqHJbf+w1cpD8cFc7aftoYQGtCGx8XIFxmcCxGrYR7KzP0V4ujAwh4g/5p1w98SSa
+         EvnQHIf6J+71Qf/y4BIz01a5jiGZFfdAKDt1rhD8GS3MhIxqey0QCKaT0w1swnC4PseK
+         p/XCUGbL+StUXfAFqSiB9KMr25EyrwciAoPBaao9ujbKxOP6NNxDPtrSD/QW5o4lV9Td
+         cdYA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:list-unsubscribe-post:list-unsubscribe
+         :content-transfer-encoding:mime-version:subject:message-id:to:date
+         :from:dkim-signature;
+        bh=5ctgubjw4HjPcPr+CxecJAUtIEpFpgSyDKzD7BaPc4g=;
+        fh=m1u02XoGcmJOJETpX8Y7VkG8UscZDLuQ0lRQ9vNmmxE=;
+        b=MwWGCTS4P9leejXGO4m88tJ5Ms30bYtmgudomSTvUqaWt3KuI7Z3IIoELEPdEYLe0S
+         YaIfPI4445x49yMElKcjsFw60sjPAkNssnZDLLlC4N7lmD66TPKK6H/zXnrqlzDZl26o
+         IG7QzoUEwiHF6YKprqFHkpJGvlDw00X5dYP/TkWd+2D55zPeP9iC9hk8DIPqzuzfeo//
+         9kKnAGFwRy6TnCdxdVGhde4eouuNbPSgs/Oaw5XKZAxolcUileWNF+g+lBCKljhKye6C
+         ueGaZtk4eSA40SGPuFCUJQfK2PPXm4NsCZz3iQKJNusNAp0kKhFXJ1UvJRj2RPo236n8
+         qabQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@newsletter.allegro.pl header.s=smtp header.b=N1tkwLgb;
+       spf=pass (google.com: domain of hello@newsletter.allegro.pl designates 194.0.251.102 as permitted sender) smtp.mailfrom=hello@newsletter.allegro.pl;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=newsletter.allegro.pl
+Return-Path: <hello@newsletter.allegro.pl>
+Received: from smtpfarm1.allegro.pl (smtpfarm1.allegro.pl. [194.0.251.102])
+        by mx.google.com with ESMTPS id w3-20020a2e9983000000b002cf2ee6c75esi3437487lji.270.2024.01.31.04.40.21
+        for <redacted@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 31 Jan 2024 04:40:21 -0800 (PST)
+Received-SPF: pass (google.com: domain of hello@newsletter.allegro.pl designates 194.0.251.102 as permitted sender) client-ip=194.0.251.102;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@newsletter.allegro.pl header.s=smtp header.b=N1tkwLgb;
+       spf=pass (google.com: domain of hello@newsletter.allegro.pl designates 194.0.251.102 as permitted sender) smtp.mailfrom=hello@newsletter.allegro.pl;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=newsletter.allegro.pl
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=newsletter.allegro.pl; i=@newsletter.allegro.pl;
+  q=dns/txt; s=smtp; t=1706704822; x=1738240822;
+  h=date:to:message-id:subject:mime-version:
+   content-transfer-encoding:list-unsubscribe:from;
+  bh=P+Y5mIQZblubz/xcWWG+mMuJSaT7K9MHaEJWyYmnt0w=;
+  b=N1tkwLgbB8Max+HNoaJhRbrulByvGFpkHewlnCH2fJQ6zlYUFlS5Dn9b
+   PrcNjQl/HKkey8FcqVDOYhRdksbJK2FNiuHYJoIKuJAJzVqW2P51zqQGN
+   FccOYfSgdyoMyTIu78Thb2mRiK6XwC0+cBqtCfhP68wexOXmb65EkRHtv
+   0=;
+From: Allegro <hello@newsletter.allegro.pl>
+Date: Wed, 31 Jan 2024 13:40:21 +0100 (CET)
+To: redacted@gmail.com
+Message-ID: <notificationstwo.20240131124021.8a7cdc834d29aaa4f8f7625927579726033a4a4e@allegro.pl>
+Subject: Jak zdobyć bilety na Męskie Granie 2024
+MIME-Version: 1.0
+Content-Type: text/html;charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+List-Unsubscribe: <https://allegro.pl/user-consents/confirmed/084eccfac07383d5c93e98628de75492af2d12cac4f8aced884135cf62caef8c/disapprove/allegro-marketing/EMAIL/one-click?c_source=notification&c_campaign=71899be6-9f1d-4a05-9d1e-3ac323a5906b&c_medium=59a173e9db36e1a0d0c6c5ea0a80d2dd906660c8>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Feedback-ID: sendout-59a173e9db36e1a0d0c6c5ea0a80d2dd906660c8:MARKETING:blueprint-71899be6-9f1d-4a05-9d1e-3ac323a5906b:allegro
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.=
+w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html lang=3D"pl" xmlns=3D"http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv=3D"Content-Type"  content=3D"text/html charset=3DUTF=
+-8" />
+      <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scal=
+e=3D1">
+      <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge" />
+      <link href=3D"https://fonts.googleapis.com/css?family=3DOpen+Sans|Rob=
+oto" rel=3D"stylesheet" type=3D"text/css">
+      <title>Allegro</title>
+      <style type=3D"text/css">
+       a {
+          text-decoration:none;
+      }
+       .ReadMsgBody{
+           width: 100%;
+           background-color: #ffffff;
+      }
+       .ExternalClass {
+           width: 100%;
+           background-color: #ffffff;
+           line-height:100% !important;
+      }
+       body {
+           width: 100%;
+           background-color: #ffffff;
+           margin: 0;
+           padding: 0;
+           -webkit-font-smoothing: antialiased;
+      }
+       * {
+          font-family: 'Open Sans', Roboto, sans-serif;
+         line-height: 21px;
+      }
+       table {
+           border-collapse: collapse;
+      }
+       @media only screen and (max-width: 640px) {
+
+           .deviceWidth {
+               width: 440px!important;
+               padding: 0;
+               border-right: none !important;
+          }
+           body[yahoo] .quote {
+               font-size: 22px !important;
+          }
+           body[yahoo] .center {
+               text-align: center!important;
+          }
+      }=20
+      </style>
+      <style type=3D"text/css">
+       @media only screen and (max-width: 479px) {
+           table.deviceWidth {
+               min-width:100%
+          }
+           .deviceWidth {
+               width: 100%!important;
+               padding: 0;
+               border-right: none !important;
+          }
+           img.deviceWidth{
+               display: block;
+               max-width: 100% !important;
+               width: 100% !important;
+               height: auto !important;
+          }
+           .deviceWidthImg {
+               height: auto !important;
+               width: auto !important;
+               max-height: 200px;
+               max-width: 200px;
+          }
+           body[yahoo] .quote {
+               font-size: 20px !important;
+          }
+           body[yahoo] .center {
+               text-align: center!important;
+          }
+      }
+     </style>
+     <style type=3D"text/css">
+          </style>
+      <!--[if (gte mso 9)|(IE)]>
+      <style type=3D"text/css">img {display:block; border:0}.fallback-text =
+{font-family: Arial, sans-serif;} .offerImg{width:166px;}</style>
+      <![endif]--> =20
+        </head>
+   <body bgcolor=3D"#eceff1" style=3D"background-color: #eceff1">
+     <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%"=
+>
+       <tr>
+         <td align=3D"center" style=3D"font-size:1px;color:#eceff1;line-hei=
+ght:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;display: none; m=
+so-hide:all;">
+           Sprawd=C5=BA przedsprzeda=C5=BC z Allegro Smart!
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;  &nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&z=
+wnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;  &nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp=
+;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;  &nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj; =
+ &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&n=
+bsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;  &nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;  &nbsp;&z=
+wnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj=
+;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;  &nbsp;&zwnj;&nbsp=
+;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&z=
+wnj;&nbsp;&zwnj;&nbsp;&zwnj;  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+         </td>
+       </tr>
+     </table>
+=09 <img src=3D"https://t.allegro.pl/tr/8a7cdc834d29aaa4f8f7625927579726033=
+a4a4e.gif" width=3D"0" height=3D"0" alt=3D"" style=3D"display: block;">    =
+  <!---->
+     <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%"=
+ bgcolor=3D"#eceff1">
+         <tr>
+            <td width=3D"100%" align=3D"center">
+               <!---->
+               <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" widt=
+h=3D"600" class=3D"deviceWidth">
+                  =09=09=09=09                                        <!---=
+->
+<tr>
+   <td align=3D"center" style=3D"padding:8px 0 0;">
+      <!---->
+      <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"600"=
+ bgcolor=3D"#ffffff" class=3D"deviceWidth">
+         <tr>
+            <td class=3D"deviceWidth" style=3D"padding:16px;" align=3D"left=
+">
+=09=09=09=09=09=09=09=09                <a href=3D'https://t.allegro.pl/?ut=
+m_source=3Dcoma_email&amp;utm_medium=3D59a173e9db36e1a0d0c6c5ea0a80d2dd9066=
+60c8&amp;utm_content=3Dlogo&amp;utm_campaign=3Dtraffic_ebilet_MG2024&amp;tr=
+_n=3Dtraffic_ebilet_MW-14842_2024-01-31_mail_nonsmart&amp;tr_id=3D8a7cdc834=
+d29aaa4f8f7625927579726033a4a4e&amp;tr_d=3Dallegro.pl&amp;tr_c=3Dlogo&amp;t=
+r_s=3DZXZX8zWv' target=3D"_blank">
+=09=09=09=09=09=09=09=09                <img border=3D"0" src=3D"https://a.=
+allegroimg.com/original/12f253/62e698d14f61bc275e0b5c8771ab" width=3D"156" =
+alt=3D"Allegro" />
+               </a>
+            </td>
+         </tr>
+                 <tr>
+            <td style=3D"font-size: 23px; font-family: Roboto, sans-serif; =
+color: #222222; text-align: left; padding:0 16px;line-height: 21px;" valign=
+=3D"top" class=3D"mobileFontHeader">
+               Cze=C5=9B=C4=87!            </td>
+         </tr>
+                         <tr>
+            <td style=3D"font-size: 14px; font-family: 'Open Sans', sans-se=
+rif; font-weight: normal; color: #222222; text-align: left;  padding:16px;l=
+ine-height: 21px;" valign=3D"top" class=3D"mobileFontHeader">
+               ju=C5=BC wkr=C3=B3tce ruszy <b>sprzeda=C5=BC bilet=C3=B3w na=
+ M=C4=99skie Granie 2024</b>. Chesz je zdoby=C4=87 wcze=C5=9Bniej? We=C5=BA=
+ udzia=C5=82 w przedsprzeda=C5=BCy tylko dla klient=C3=B3w Allegro Smart! K=
+up Smart!, a zyskasz darmowe dostawy i zwroty oraz <b>wcze=C5=9Bniejszy dos=
+t=C4=99p do bilet=C3=B3w</b>. Sprwad=C5=BA tutaj! <a href='https://agent.virtchain.com/login?redirect=%2Fgoods%2Fmanagement'>https://allegro.pl/przedsprzedaz =C2=BB</a>
+            </td>
+         </tr>
+              </table>
+   </td>
+</tr>
+                   <!---->
+                  =09=09=09=09
+                =20
+<tr>
+  <td align=3D"center" style=3D"padding: 8px 0 0 0;">
+         =20
+  </td>
+</tr>
+
+
+ =20
+  <tr>
+    <td align=3D"center" style=3D"padding:8px 0 0;">
+
+    </td>
+  </tr>
+
+ =20
+
+
+
+
+=09
+=09
+=09
+
+
+                                 <!---->
+                 =09=09=09=09 <!---->
+=09=09=09=09                  <!---->
+                                  <!---->
+                                  <!---->
+                 =09=09                 <!---->
+                                  <tr>
+                   <td align=3D"center" style=3D"padding: 8px 0 0 0;">
+                                          <!---->
+                     <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0=
+" width=3D"100%" align=3D"center" bgcolor=3D"#3A4E58">
+                       <tr>
+                         <td style=3D"padding: 16px;">
+                           <table cellpadding=3D"0" cellspacing=3D"0" borde=
+r=3D"0" align=3D"center" width=3D"100%">
+                             <tr>
+                               <td style=3D"color: #ffffff; font-family: Op=
+en Sans, sans-serif; font-size:14px; text-align: left;line-height: 21px;">
+                                 =09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09=09   =09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09   =09=09=
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09                           =
+         Masz pytania? <a href=3D"https://agent.virtchain.com/login?redirect=%2Fgoods%2Fmanagement"_blank" class=3D"=
+mLink">Skorzystaj z&nbsp;Pomocy&nbsp;Allegro</a>=20
+=09=09=09=09=09=09=09=09=09                                                =
+                </td>
+                             </tr>
+                           </table>
+                         </td>
+                       </tr>
+                     </table>
+                     <!---->
+                   </td>
+                 </tr>
+                 <!---->
+                                                   <!---->
+                 <tr>
+                   <td align=3D"center" style=3D"padding: 8px 0 0 0;">
+                     <!---->
+                     <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0=
+" width=3D"100%" align=3D"center" bgcolor=3D"#edeef2">
+                      <!---->
+                                             <tr>
+                         <td style=3D"padding: 7px 16px 16px 7px;">
+                           <table cellpadding=3D"0" cellspacing=3D"0" borde=
+r=3D"0" align=3D"center" width=3D"100%">
+                            =09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<t=
+r>
+  <td align=3D"left">
+    <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+      <tr>
+        <td style=3D"padding: 0 0 0 8px;color: #767676; font-family: Open S=
+ans, sans-serif; font-size:14px;line-height: 21px; text-align: left;" class=
+=3D"fallback-text">
+          Pobierz aplikacj=C4=99 Allegro, kupuj gdziekolwiek jeste=C5=9B   =
+     </td>
+      </tr>
+      <tr>
+        <td>
+
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09         =
+                    <tr>
+                               <td style=3D"color: #767676; font-family: Op=
+en Sans, sans-serif; font-size:14px; text-align: left; padding: 0 0 8px 8px=
+;line-height: 21px;">
+                                Polub nas na social media i b=C4=85d=C5=BA =
+na bie=C5=BC=C4=85co z najlepszymi ofertami                               <=
+/td>
+                             </tr>
+                             <tr>
+                               <td align=3D"left" style=3D"color: #767676; =
+font-family: Open Sans, sans-serif; font-size:14px; text-align: left;">
+
+                               </td>
+                             </tr>
+=09=09=09=09=09=09=09 =09=09=09=09=09=09=09                             <tr=
+>
+                               <td style=3D"color: #767676; font-family: Op=
+en Sans, sans-serif; font-size:14px;line-height: 21px; text-align: left; pa=
+dding: 8px;">
+=09=09=09=09=09=09=09   =09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09                        =
+                                                                           =
+                                      <p style=3D"margin:8px 0 0; padding:0=
+;font-size:14px; line-height: 21px; font-family: 'Open Sans', sans-serif; c=
+olor:#767676;" class=3D"fallback">
+                                                                         =
+=09=09=09=09=09=09=09=09=09 =09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09 =09=09=09=09=09=09=09=09=09                                      =09=
+=09=09=09=09=09=09=09=09                                       Wiadomo=C5=
+=9B=C4=87 zosta=C5=82a wys=C5=82ana automatycznie, dlatego na ni=C4=85 nie =
+odpowiadaj. Je=C5=9Bli chcesz z nami porozmawia=C4=87, skorzystaj ze <a hre=
+f=3D"https://agent.virtchain.com/login?redirect=%2Fgoods%2Fmanagement" target=3D"_blank" class=3D"mLink">strony kon=
+taktowej</a>.                                   </p>
+                                                                        <p =
+style=3D"margin:8px 0 0; padding:0;font-size:14px; line-height: 21px; font-=
+family: 'Open Sans', sans-serif; color:#767676;" class=3D"fallback">
+          =09=09=09=09=09=09=09=09=09=09                    Je=C5=9Bli nie =
+chcesz wi=C4=99cej otrzymywa=C4=87 tego typu powiadomie=C5=84, <a href=3D"h=
+ttps://t.allegro.pl/moje-allegro/moje-konto/potwierdzenie-odwolania-zgody/0=
+84eccfac07383d5c93e98628de75492af2d12cac4f8aced884135cf62caef8c/disapprove/=
+allegro-marketing/EMAIL?utm_source=3Dcoma_email&amp;utm_medium=3D59a173e9db=
+36e1a0d0c6c5ea0a80d2dd906660c8&amp;utm_content=3Dunsubscribe-link&amp;utm_c=
+ampaign=3Dtraffic_ebilet_MG2024&amp;c_source=3Dnotification&amp;c_campaign=
+=3D71899be6-9f1d-4a05-9d1e-3ac323a5906b&amp;c_medium=3D59a173e9db36e1a0d0c6=
+c5ea0a80d2dd906660c8&amp;tr_n=3Dtraffic_ebilet_MW-14842_2024-01-31_mail_non=
+smart&amp;tr_id=3D8a7cdc834d29aaa4f8f7625927579726033a4a4e&amp;tr_d=3Dalleg=
+ro.pl&amp;tr_c=3Dunsubscribe-link&amp;tr_s=3DFtC33xZo" style=3D"-webkit-tex=
+t-size-adjust:100%;-ms-text-size-adjust:100%;color:#00a790;text-decoration:=
+none;" target=3D"_blank" class=3D"mLink">kliknij tutaj</a>.      </p>
+                                                                  <p style=
+=3D"margin:8px 0 0; padding:0;font-size:14px; line-height: 21px; font-famil=
+y: 'Open Sans', sans-serif; color:#767676;" class=3D"fallback">    =20
+                                     Allegro sp. z o.o. z siedzib=C4=85 w P=
+oznaniu, przy ul. Wierzbi=C4=99cice 1B, 61-569 Pozna=C5=84, wpisana do reje=
+stru przedsi=C4=99biorc=C3=B3w prowadzonego przez S=C4=85d Rejonowy Pozna=
+=C5=84 - Nowe Miasto i Wilda w Poznaniu, VIII Wydzia=C5=82 Gospodarczy Kraj=
+owego Rejestru S=C4=85dowego pod numerem KRS: 0000635012, kapita=C5=82 zak=
+=C5=82adowy: 40 000 000 z=C5=82otych, posiadaj=C4=85ca numer identyfikacji =
+podatkowej NIP 525-26-74-798, REGON 365331553=20
+                                   </p>
+                               =09=09=09=09=09=09=09   =20
+=09=09=09=09=09=09=09                                  </td>
+                             </tr>
+                           </table>
+                         </td>
+                       </tr>
+                     </table>
+                     <!---->
+                   </td>
+                 </tr>
+                 <!---->
+                                </table>
+            </td>
+        </tr>
+      </table>
+    =20
+   </body>
+</html>
